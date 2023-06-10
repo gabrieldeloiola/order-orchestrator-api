@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -30,6 +32,9 @@ public class User implements Serializable {
     private String phone;
     private String Password;
 
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
+
 
     @Override
     public String toString() {
@@ -41,6 +46,7 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", Password='" + Password + '\'' +
+                ", orders=" + orders +
                 '}';
     }
 }

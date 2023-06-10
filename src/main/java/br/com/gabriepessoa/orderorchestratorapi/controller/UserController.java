@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     private UserService userService;
@@ -23,8 +23,8 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<List<User>> getUsers() {
-        List<User> list = userService.getUsers();
-        return ResponseEntity.ok().body(list);
+        List<User> usersList = userService.getUsers();
+        return ResponseEntity.ok().body(usersList);
     }
 
     @GetMapping("{id}")
