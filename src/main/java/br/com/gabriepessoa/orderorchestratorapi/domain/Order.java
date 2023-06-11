@@ -1,5 +1,6 @@
 package br.com.gabriepessoa.orderorchestratorapi.domain;
 
+import br.com.gabriepessoa.orderorchestratorapi.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -30,6 +31,8 @@ public class Order implements Serializable {
     private UUID orderId;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     private Instant moment;
+
+    private OrderStatus orderStatus;
 
     @ManyToOne
     @JoinColumn(name = "cliend_id")
