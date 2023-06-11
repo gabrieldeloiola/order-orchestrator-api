@@ -10,11 +10,8 @@ import java.util.List;
 import java.util.UUID;
 
 
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@EqualsAndHashCode
 
 @Entity
 @Table(name = "tb_user")
@@ -36,19 +33,4 @@ public class User implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", Password='" + Password + '\'' +
-                ", orders=" + orders +
-                '}';
-    }
 }

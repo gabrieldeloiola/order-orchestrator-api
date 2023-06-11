@@ -22,7 +22,7 @@ public class UserService {
     }
 
     public User getUserById(UUID id) {
-        Optional<User> userId = Optional.of(userRepository.getReferenceById(id));
+        Optional<User> userId = userRepository.findById(id);
         return userId.get();
     }
 

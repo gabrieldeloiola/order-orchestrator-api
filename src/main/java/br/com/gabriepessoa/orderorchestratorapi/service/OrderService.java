@@ -22,8 +22,8 @@ public class OrderService {
     }
 
     public Order getOrderById(UUID id) {
-        Optional<Order> oderId = Optional.of(orderRepository.getReferenceById(id));
-        return oderId.get();
+        Optional<Order> orderId = orderRepository.findById(id);
+        return orderId.get();
     }
 
 }

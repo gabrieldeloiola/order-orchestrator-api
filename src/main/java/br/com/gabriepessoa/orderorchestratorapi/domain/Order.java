@@ -3,6 +3,7 @@ package br.com.gabriepessoa.orderorchestratorapi.domain;
 import br.com.gabriepessoa.orderorchestratorapi.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -10,8 +11,11 @@ import java.time.Instant;
 import java.util.UUID;
 
 
+@NoArgsConstructor
+
 @Entity
 @Table(name = "tb_order")
+
 public class Order implements Serializable {
 
     @Serial
@@ -34,9 +38,6 @@ public class Order implements Serializable {
         this.moment = moment;
         setOrderStatus(orderStatus);
         this.user = user;
-    }
-
-    public Order() {
     }
 
     public UUID getOrderId() {
@@ -71,5 +72,15 @@ public class Order implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", moment=" + moment +
+                ", orderStatus=" + orderStatus +
+                ", user=" + user +
+                '}';
     }
 }
