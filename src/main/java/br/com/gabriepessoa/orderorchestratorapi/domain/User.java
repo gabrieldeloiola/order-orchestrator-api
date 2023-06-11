@@ -20,7 +20,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1l;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
 
     private String name;
@@ -31,6 +31,6 @@ public class User implements Serializable {
     private String Password;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "user")
     private List<Order> orders = new ArrayList<>();
 }

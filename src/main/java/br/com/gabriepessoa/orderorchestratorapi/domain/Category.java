@@ -18,11 +18,11 @@ public class Category implements Serializable {
     public static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
 
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "categories")
     private Set<Product>  products = new HashSet<>();
 }
