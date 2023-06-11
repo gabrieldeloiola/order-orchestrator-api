@@ -7,22 +7,26 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 
 @Entity
-@Table(name = "tb_category")
-public class Category implements Serializable {
+@Table(name = "tb_product")
+public class Product implements Serializable {
 
     public static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
+    private UUID productId;
 
+    private String name;
+    private String description;
+    private Double price;
+    private String imgURL;
 
     @ManyToMany
-    private Set<Product>  products = new HashSet<>();
+    private Set<Category> categories = new HashSet<>();
 }

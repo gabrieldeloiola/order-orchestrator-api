@@ -21,9 +21,8 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-    public Order getOrderById(UUID id) {
-        Optional<Order> orderId = orderRepository.findById(id);
-        return orderId.get();
+    public Optional<Order> getOrderById(UUID id) {
+        return orderRepository.findById(id);
     }
 
 }
