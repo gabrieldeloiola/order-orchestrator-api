@@ -21,14 +21,12 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<List<User>> getUsers() {
-        List<User> usersList = userService.getUsers();
-        return ResponseEntity.ok().body(usersList);
+        return ResponseEntity.ok().body(userService.getUsers());
     }
 
     @GetMapping("{id}")
     public ResponseEntity<User> getUserById(@PathVariable UUID id) {
-        User userId = userService.getUserById(id);
-        return ResponseEntity.ok().body(userId);
+        return ResponseEntity.ok().body(userService.getUserById(id));
     }
 
     @PostMapping

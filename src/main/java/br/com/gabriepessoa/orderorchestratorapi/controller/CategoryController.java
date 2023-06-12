@@ -20,19 +20,18 @@ public class CategoryController {
 
     @GetMapping
     public ResponseEntity<List<Category>> getCategory() {
-        List<Category> listCategory = categoryService.getCategory();
-        return ResponseEntity.ok().body(listCategory);
+        return ResponseEntity.ok().body(categoryService.getCategory());
     }
 
     @GetMapping("{id}")
     public ResponseEntity<Category> getCategoryById(@PathVariable Long id) {
-        Category categoryById = categoryService.getCategoryById(id);
-        return ResponseEntity.ok().body(categoryById);
+        return ResponseEntity.ok().body(categoryService.getCategoryById(id));
     }
 
+    @PostMapping
     public ResponseEntity<Category> saveCategory(@RequestBody Category category){
-        Category categoryObj = categoryService.saveCategory(category);
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoryObj);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(categoryService.saveCategory(category));
     }
 
 }

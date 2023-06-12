@@ -1,5 +1,6 @@
 package br.com.gabriepessoa.orderorchestratorapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Category implements Serializable {
     private String name;
 
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "categories")
     private Set<Product>  products = new HashSet<>();
 }
